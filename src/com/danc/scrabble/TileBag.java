@@ -54,6 +54,8 @@ public class TileBag {
         addTiles('J', 1, 8);
         addTiles('X', 1, 8);
 
+
+        addTiles('Z', 1, 10);
         addTiles('Q', 1, 10);
 
         shuffle();
