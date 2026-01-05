@@ -19,52 +19,54 @@ public class TileBag {
 
         // TODO: add ALL tiles to the bag
         // small set just to test drawing
-        addTiles('E', 12, 1);
+        addTiles('E', 12);
 
-        addTiles('A', 9 , 1);
-        addTiles('I', 9, 1);
+        addTiles('A', 9);
+        addTiles('I', 9);
 
-        addTiles('O', 8, 1);
+        addTiles('O', 8);
 
-        addTiles('N', 6, 1);
-        addTiles('R', 6, 1);
-        addTiles('T', 6, 1);
+        addTiles('N', 6);
+        addTiles('R', 6);
+        addTiles('T', 6);
 
-        addTiles('D', 4, 2);
+        addTiles('D', 4);
 
-        addTiles('L', 4, 1);
-        addTiles('S', 4, 1);
-        addTiles('U', 4, 1);
+        addTiles('L', 4);
+        addTiles('S', 4);
+        addTiles('U', 4);
 
-        addTiles('G', 3, 2);
+        addTiles('G', 3);
 
-        addTiles('B', 2, 3);
-        addTiles('C', 2, 3);
-        addTiles('M', 2, 3);
-        addTiles('P', 2, 3);
+        addTiles('B', 2);
+        addTiles('C', 2);
+        addTiles('M', 2);
+        addTiles('P', 2);
 
-        addTiles('F', 2, 4);
-        addTiles('H', 2, 4);
-        addTiles('V', 2, 4);
-        addTiles('W', 2, 4);
-        addTiles('Y', 2, 4);
+        addTiles('F', 2);
+        addTiles('H', 2);
+        addTiles('V', 2);
+        addTiles('W', 2);
+        addTiles('Y', 2);
 
-        addTiles('K',1,5);
+        addTiles('K',1);
 
-        addTiles('J', 1, 8);
-        addTiles('X', 1, 8);
+        addTiles('J', 1);
+        addTiles('X', 1);
 
 
-        addTiles('Z', 1, 10); //oops
-        addTiles('Q', 1, 10);
+        addTiles('Z', 1); //oops
+        addTiles('Q', 1);
 
         shuffle();
 
     }
 
     //adds 'count' copies of a tile with the given letter and value
-    private void addTiles(char letter, int count, int value) {
-        for (int i = 0; i < count; i++) { // loops 'count' amount of times, adding tile to bag.
+    private void addTiles(char letter, int count) {
+        int value = TileValues.valueOf(letter);
+
+        for (int i = 0; i < count; i++) {
             tiles.add(new Tile(letter, value));
         }
     }
