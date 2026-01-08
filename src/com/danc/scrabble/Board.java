@@ -55,5 +55,49 @@ public class Board {
         }
     }
 
+    // updated via placeWord
+    public void placeWord(Position start, Direction dir, String word) {
+        if (word == null || word.isEmpty()) {
+            throw new IllegalArgumentException("Word cannot be empty");
+        }
 
+        word = word.toUpperCase();
+
+        int r = start.getRow();
+        int c = start.getCol();
+
+        for (int i = 0; i < word.length(); i++) {
+            if (!inBounds(r, c)) {
+                throw new IllegalArgumentException("Word goes out of bounds");
+
+            }
+
+            Tile existing = grid[r][c];
+            char placing = word.charAt(i);
+
+            if (existing != null && existing.getLetter() != placing) {
+                throw new IllegalArgumentException(
+                        "Conflict at" + Position.toCoord(r, c) + ": board has '" + existing.getLetter() + "', tried" + placing + "'."
+                );
+            }
+            if (dir == Direction.HORIZONTAL) c++;
+            else r++;
+        }
+
+        // Second pass: actually place tiles:
+        r = start.getRow();
+        c = start.getCol();
+
+        for (int i = 0; i < word.length(); i++) {
+            if (grid[r][c] == null) {
+            char ch = word.charAt(i);
+            grid[r][c] = new Tile(ch, TileValues.valueOf(ch));
+        }
+
+        if (dir == Direction.HORIZONTAL) c++;
+        else r++;
+
+        }
+
+    }
 }
