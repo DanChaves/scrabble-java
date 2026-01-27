@@ -20,6 +20,7 @@ public class Board {
             throw new IllegalArgumentException("Position out of bounds");
         }
         return grid[row][col] == null;
+
     }
 
     public void placeTile(int row, int col, Tile tile) {
@@ -77,7 +78,7 @@ public class Board {
 
             if (existing != null && existing.getLetter() != placing) {
                 throw new IllegalArgumentException(
-                        "Conflict at" + Position.toCoord(r, c) + ": board has '" + existing.getLetter() + "', tried" + placing + "'."
+                        "Conflict at " + Position.toCoord(r, c) + ": board has '" + existing.getLetter() + "', tried '" + placing + "'."
                 );
             }
             if (dir == Direction.HORIZONTAL) c++;

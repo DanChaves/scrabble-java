@@ -5,7 +5,7 @@ public class Tile {
     private final int value; // & once set, they cannot change (final)
     // this is what makes TILE immutable (good OOP)
 
-    // constructor!
+    // constructor
     // When we create a tile we assign its letter value and numerical value
     // both needed for validating the words played the points gained
     public Tile(char letter, int value) {
